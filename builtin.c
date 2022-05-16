@@ -11,8 +11,7 @@
 
 int check_builtins(char **tokens, char *string, int *error)
 {
-	command built_ins[] = { {"exit", exit_shell}, {"env", print_env},
-				{"spaces", _null}, {NULL, NULL} };
+	command built_ins[] = {{"exit", exit_shell}, {"env", print_env}, {"spaces", _null}, {NULL, NULL}};
 	unsigned int i = 0;
 
 	if (tokens[0] == NULL)
@@ -46,33 +45,6 @@ int exit_shell(char **tokens, char *string, int *error)
 }
 
 /**
- * print_env - prints the current environment.
- * @tokens: double pointer to tokens.
- * @string: input.
- * @error: error.
- * Return: 1 if successful.
- */
-
-int print_env(char **tokens __attribute__((unused)),
-char *string __attribute__((unused)), int *error)
-{
-	char **env = environ;
-	unsigned int i, size = 0;
-
-	i = 0;
-	while (env[i] != NULL)
-	{
-		size = _strlen(env[i]);
-		write(STDOUT_FILENO, env[i], size);
-		write(STDOUT_FILENO, "\n", 1);
-		i++;
-	}
-
-	*error = 0;
-	return (1);
-}
-
-/**
  * _null - return 1.
  * @tokens: double pointer to tokens.
  * @string: input.
@@ -81,7 +53,7 @@ char *string __attribute__((unused)), int *error)
  */
 
 int _null(char **tokens __attribute__((unused)),
-char *string __attribute__((unused)), int *error)
+		  char *string __attribute__((unused)), int *error)
 {
 	*error = 0;
 	return (1);
