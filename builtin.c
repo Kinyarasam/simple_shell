@@ -12,9 +12,9 @@
 int check_builtins(char **tokens, char *string, int *error)
 {
 	command built_ins[] = {{"exit", exit_shell},
-			{"env", print_env},
-			{"spaces", _null},
-			{NULL, NULL}};
+						   {"env", print_env},
+						   {"spaces", _null},
+						   {NULL, NULL}};
 	unsigned int i = 0;
 
 	if (tokens[0] == NULL)
@@ -44,7 +44,7 @@ int exit_shell(char **tokens, char *string, int *error)
 	free(tokens);
 	free(string);
 	exit(*error);
-	return (1);
+	return (0);
 }
 
 /**
