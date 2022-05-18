@@ -11,7 +11,10 @@
 
 int check_builtins(char **tokens, char *string, int *error)
 {
-	command built_ins[] = {{"exit", exit_shell}, {"env", print_env}, {"spaces", _null}, {NULL, NULL}};
+	command built_ins[] = {{"exit", exit_shell},
+			{"env", print_env},
+			{"spaces", _null},
+			{NULL, NULL}};
 	unsigned int i = 0;
 
 	if (tokens[0] == NULL)
