@@ -20,7 +20,7 @@ char *find_path(char *command)
 	}
 	copy = malloc(_strlen(env[count]) + 1);
 	_strcpy(copy, env[count]);
-	directory = strtok(copy, ":=");
+	directory = strtok(copy, ":");
 	while (directory != NULL)
 	{
 		directories[i] = malloc(_strlen(directory) + _strlen(command) + 2);
