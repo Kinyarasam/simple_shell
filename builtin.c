@@ -39,11 +39,12 @@ int check_builtins(char **tokens, char *string, int *error)
  * Return: Zero if successful.
  */
 
-void exit_shell(char **tokens, char *string, int *error)
+int exit_shell(char **tokens, char *string, int *error)
 {
 	free(tokens);
 	free(string);
 	exit(*error);
+	return (1);
 }
 
 /**

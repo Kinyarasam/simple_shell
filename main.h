@@ -26,7 +26,7 @@ extern char **environ;
 
 char **_strtok(char **tokens, char *string, char *delim);
 char *find_path(char *command);
-void exit_shell(char **tokens, char *string, int *error);
+int exit_shell(char **tokens, char *string, int *error);
 void execute(char **tokens, char *string, int *error);
 int print_env(char **tokens, char *string, int *error);
 char *_strcat(char *dest, char *src);
