@@ -35,7 +35,7 @@ char *find_path(char *command)
 	char *copy = NULL, *ruta = NULL, **env = environ;
 	char **directories, *directory = NULL;
 	struct stat st;
-	int count = 0, i = 0, j = 0;
+	int i = 0, j = 0;
 
 	directories = malloc(100);
 	if (directories == NULL)
