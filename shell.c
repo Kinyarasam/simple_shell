@@ -10,24 +10,27 @@ int main(void)
 	char *string, **tokens;
 	size_t n = 0;
 	ssize_t gl, fd = 0;
-	int status = 0, tty = 1, check_b_ins, error = 0;
+	int status = 0, tty = 1, is_builtin, error = 0;
 
 	isatty(STDIN_FILENO) == 0 ? tty = 0 : tty;
-	do {
+	do
+	{
 		string = NULL, tokens = NULL, n = 0, status = 0;
 		tty == 1 ? fd = write(STDOUT_FILENO, "($) ", 4) : tty;
 		if (fd == -1)
 			dprintf(STDERR_FILENO, "Can't write the stdout");
 		gl = getline(&string, &n, stdin);
 		if (gl == -1)
-		{	free(string);
+		{
+			free(string);
 			if (feof(stdin))
 				return (error);
 			else
-				return (EXIT_FAILURE); }
+				return (EXIT_FAILURE);
+		}
 		tokens = _strtok(tokens, string, " \t\n\"\'");
-		check_b_ins = check_builtins(tokens, string, &error);
-		if (check_b_ins == 1)
+		is_builtin = check_builtins(tokens, string, &error);
+		if (is_builtin)
 			status = 1;
 		if (status == 0)
 			check_execution(tokens, string, &error);
