@@ -5,9 +5,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/types.h> /* definitions */
-#include <sys/stat.h> /* structure of the data */
+#include <sys/stat.h>  /* structure of the data */
 #include <sys/wait.h>
-#include <fcntl.h> /* open() */
+#include <fcntl.h>	/* open() */
 #include <unistd.h> /* constants */
 
 /**
@@ -26,7 +26,7 @@ extern char **environ;
 
 char **_strtok(char **tokens, char *string, char *delim);
 char *find_path(char *command);
-int exit_shell(char **tokens, char *string, int *error);
+void exit_shell(char **tokens, char *string, int *error);
 void execute(char **tokens, char *string, int *error);
 int print_env(char **tokens, char *string, int *error);
 char *_strcat(char *dest, char *src);
