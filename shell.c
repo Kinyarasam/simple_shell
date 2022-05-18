@@ -13,8 +13,7 @@ int main(void)
 	int status = 0, tty = 1, is_builtin, error = 0;
 
 	isatty(STDIN_FILENO) == 0 ? tty = 0 : tty;
-	do
-	{
+	do {
 		string = NULL, tokens = NULL, n = 0, status = 0;
 		tty == 1 ? fd = write(STDOUT_FILENO, "($) ", 4) : tty;
 		if (fd == -1)

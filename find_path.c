@@ -1,9 +1,16 @@
 #include "main.h"
 
+/*
+ * find_pathenv - find path env
+ * @env: env
+ * Return: copy
+ */
+
 char *find_pathenv(char **env)
 {
 	int count = 0;
 	char *copy = NULL;
+
 	for (count = 0; env[count] != NULL; count++)
 	{
 		if ((_strncmp("PATH", env[count], 4)) == 0)

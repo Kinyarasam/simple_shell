@@ -28,7 +28,10 @@ void check_execution(char **tokens, char *string, int *error)
 	{
 		tmp = malloc(2 * sizeof(char *));
 		if (tmp == NULL)
+		{
+			free(tokens);
 			return;
+		}
 		tmp[0] = tokens[0];
 		tmp[1] = NULL;
 		ruta = find_path(tokens[0]);
